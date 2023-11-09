@@ -1,0 +1,60 @@
+.home-container {
+  background-color: #464d53;
+  color: white;
+}
+
+.page_banner {
+  height: 60vh;
+  background-color: #464d53;
+  color: white;
+}
+
+#dashboard,
+#g-test,
+#g2-test {
+  color: white;
+  font-weight: 800;
+}
+
+.navbar {
+  background-color: #464d53;
+}
+nav a,
+button {
+  color: aliceblue;
+}
+.form-container {
+  background-color: rgb(230, 245, 252);
+  padding: 40px;
+  width: 800px;
+  border-radius: 8px;
+}
+
+hr.vertical-line {
+  border: none;
+  border-left: 2px solid #007bff; /* Change the color to your preferred color */
+  height: 100%; /* Set the height to match the column height */
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  color: rgb(3, 135, 206);
+  margin-top: 40px;
+}
+
+/* custom-table */
+.custom-table {
+  width: 70%; /* Set your desired width here */
+  margin: 0 auto;
+}
+.bold {
+  font-weight: 800;
+}
+
+/* hover */
+#navbarNav ul li :hover,
+.navbar-brand:hover {
+  color: antiquewhite;
+  border-bottom: 1px solid white;
+}

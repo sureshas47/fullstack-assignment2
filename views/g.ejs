@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- head tag -->
+  <head>
+    <%- include('./partials/head.ejs') %>
+    <title>G_page</title>
+  </head>
+
+  <body>
+    <!-- navbar -->
+    <%- include('./partials/navbar.ejs') %>
+
+    <!-- banner content starts -->
+    <div class="d-flex justify-content-center align-items-center page_banner">
+      <div class="text-center w-100">
+        <h1 id="g-test">G_Test</h1>
+        <p>G_Test Booking Page</p>
+      </div>
+    </div>
+    <!-- banner content ends -->
+
+    <div class="d-flex justify-content-center align-items-center mt-5">
+      <div class="text-center form-container">
+        <form id="gFormSubmit" action="/g" method="POST">
+          <div class="col-sm-6 mx-auto">
+            <div class="form-group">
+              <label for="plateNumber">License Number</label>
+              <input
+                type="text"
+                class="form-control"
+                id="licenseNumber"
+                name="licenseNumber"
+                placeholder="Enter your license number"
+                required
+              />
+            </div>
+          </div>
+          <!-- Submit Button -->
+          <div class="col-sm-6 mx-auto">
+            <button
+              id="submitLicenseNumber"
+              type="submit"
+              class="btn btn-success"
+            >
+              Submit Request
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Display User Information -->
+
+    <div class="mb-5">
+      <% if(userInfo && Object.keys(userInfo).length > 0){ %>
+      <h1>User Information</h1>
+      <div class="table-responsive">
+        <table class="table mx-auto text-center custom-table">
+          <tbody>
+            <tr>
+              <td class="bold">Name:</td>
+              <td><%=userInfo.firstName+" "+ userInfo.lastName%></td>
+            </tr>
+            <tr>
+              <td class="bold">License Number:</td>
+              <td><%=userInfo.licenseNumber%></td>
+            </tr>
+            <tr>
+              <td class="bold">Age:</td>
+              <td><%=userInfo.age%></td>
+            </tr>
+            <tr>
+              <td class="bold">Date of Birth:</td>
+              <td>
+                <%=userInfo.dob.getFullYear()+"/"+(userInfo.dob.getMonth()+1)+"/"+userInfo.dob.getDate()%>
+              </td>
+            </tr>
+
+            <!-- form controls for updating -->
+
+            <form action="/g/<%=userInfo._id%>" method="post">
+              <!-- success alert -->
+              <div
+                class="alert alert-success"
+                role="alert"
+                id="successAlert"
+                style="display: none"
+              >
+                Data updated successfully!
+              </div>
+              <!-- success alert -->
+              <tr>
+                <td class="bold">Make:</td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control text-center"
+                    id="make"
+                    name="make"
+                    value="<%=userInfo.make%>"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="bold">Model:</td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control text-center"
+                    id="model"
+                    name="model"
+                    value="<%=userInfo.model%>"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="bold">Year:</td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control text-center"
+                    id="year"
+                    name="year"
+                    value="<%=userInfo.year%>"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="bold">Plate Number:</td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control text-center"
+                    id="plateNumber"
+                    name="plateNumber"
+                    value="<%=userInfo.plateNumber%>"
+                  />
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2">
+                  <button
+                    id="successEvent"
+                    type="submit"
+                    class="btn btn-block btn-primary"
+                  >
+                    Update
+                  </button>
+                </td>
+              </tr>
+            </form>
+            <!-- form controls -->
+          </tbody>
+        </table>
+      </div>
+
+      <% } else { %>
+
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <h1 class="text-center">
+          <strong id="noUser">No User Information Found</strong>
+        </h1>
+
+        <div class="col-sm-6 mt-3">
+          <a href="/g2">
+            <button
+              id="submitLicenseNumber"
+              type="submit"
+              class="btn btn-primary btn-block"
+            >
+              Goto G_2 Page
+            </button></a
+          >
+        </div>
+      </div>
+
+      <% } %> %>
+    </div>
+  </body>
+</html>
