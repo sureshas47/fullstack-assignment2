@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const expressSession = require("express-session");
 
 // local import
-const {} = require("dotenv").config();
+require("dotenv").config();
 const dbConnection = require("./db/index");
 const { userRoute } = require("./routes/userRoute");
 const homeRoute = require("./routes/homeRoute");
@@ -47,6 +47,7 @@ g2Route(app); // g2 route
 userRoute(app); // login route
 
 // node server
-app.listen(process.env.PORT || 3000, () => {
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
   console.log(`server is running at ${port}`);
 });
