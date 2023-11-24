@@ -25,27 +25,18 @@
         <!-- Sign Up Section -->
         <div class="col-sm-7">
           <h2>Sign Up</h2>
-          <form action="/login" method="POST">
+          <form action="/signup" method="POST">
             <div class="form-group">
-              <label for="name">Name</label>
+              <label for="username">Username</label>
               <input
                 type="text"
                 class="form-control"
-                id="signupname"
-                placeholder="Name"
-                name="name"
+                id="signupUsername"
+                placeholder="Username"
+                name="username"
               />
             </div>
-            <div class="form-group">
-              <label for="signupEmail">Email address</label>
-              <input
-                type="email"
-                class="form-control"
-                id="signupEmail"
-                placeholder="Enter email"
-                name="email"
-              />
-            </div>
+
             <div class="form-group">
               <label for="signupPassword">Password</label>
               <input
@@ -58,10 +49,22 @@
             </div>
 
             <div class="form-group">
-              <label for="userRole">Select Role:</label>
-              <select class="form-control" id="userRole" name="role">
-                <option value="user">User</option>
-                <option value="admin">Admin</option>
+              <label for="signupRepeatPassword">Repeat Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="signupRepeatPassword"
+                placeholder="Repeat Password"
+                name="repeatPassword"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="userType">Select User Type:</label>
+              <select class="form-control" id="userType" name="userType">
+                <option value="Driver">Driver</option>
+                <option value="Examiner">Examiner</option>
+                <option value="Admin">Admin</option>
               </select>
             </div>
 
@@ -79,16 +82,16 @@
         <!-- Sign In Section -->
         <div class="col-sm-4">
           <h2>Sign In</h2>
-          <form action="/" method="POST">
+          <form action="/login" method="POST">
             <!-- sign-in form fields here -->
             <div class="form-group">
-              <label for="signinEmail">Email address</label>
+              <label for="signinUsername">Username</label>
               <input
-                type="email"
+                type="text"
                 class="form-control"
-                id="signinEmail"
-                placeholder="Enter email"
-                name="email"
+                id="signinUsername"
+                placeholder="Enter Userame"
+                name="username"
               />
             </div>
             <div class="form-group">
@@ -97,7 +100,7 @@
                 type="password"
                 class="form-control"
                 id="signinPassword"
-                placeholder="Password"
+                placeholder="Enter Password"
                 name="password"
               />
             </div>

@@ -1,4 +1,4 @@
-const { createUser, login } = require("../controllers/user");
+const { createUser, login, logout } = require("../controllers/user");
 
 const userRoute = (app) => {
   app.post("/signup", (req, res) => {
@@ -9,11 +9,13 @@ const userRoute = (app) => {
     login(req, res);
   });
 
-  app.get("/login", (req, res) => {
-    res.render("login");
+  app.get("/login", async (req, res) => {
+    const user = await req.session.userId;
+    res.render("login", { isUserLoggenIn: user || {} });
   });
-  app.get("/", (req, res) => {
-    res.render("home");
+
+  app.post("/logout", (req, res) => {
+    logout(req, res);
   });
 };
 
